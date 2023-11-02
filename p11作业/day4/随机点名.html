@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes gradient {
+        0% {
+            color: red;
+        }
+
+        25% {
+            color: orange;
+        }
+
+        50% {
+            color: yellow;
+        }
+
+        75% {
+            color: green;
+        }
+
+        100% {
+            color: blue;
+        }
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 100px 50px 0px 50px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .show {
+        display: flex;
+        flex-wrap: wrap;
+        height: 600px;
+        width: 700px;
+
+    }
+    .span {
+        display: block;
+        width: 20%;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .randow {
+        display: flex;
+        height: 200px;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 50px;
+        width: 400px;
+    }
+
+    button {
+        background-color: aquamarine;
+        padding: 5px 10px;
+        color: white;
+
+        border: none;
+    }
+
+    #time {
+        text-align: right;
+        margin: 50px 0px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+  
+</style>
+
+<body>
+    <h1>2301c点名器</h1>
+
+    <p id="time">
+
+    </p>
+
+    <div class="box">
+        <div class="show">
+
+        </div>
+
+        <div class="randow">
+            <h1>天选之人: <span id="val">
+
+                </span> </h1>
+            <div class="btn">
+                <button class="btn1">单人点名</button>
+                <button class="btn2">双人点名</button>
+                <button class="btn3">男生点名</button>
+                <button class="btn4">女生点名</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const arr = ['孙建', '杨子乐', '冯士靖', '张秋景', '李炎沛', '裴丽珂', '付少聪', '曹博文', '杨晓宇', '陈亚东', '赵中阳', '展立业', '曹昊然', '李媛媛', '王婷婷', '杨浩淇', '韩锡金', '李超凡', '王凯', '丁卓肖', '余道林', '王志阳', '张清莲', '刘博文', '周天龙',]
+    const arr1 = ['孙建', '杨子乐', '冯士靖', '李炎沛', '付少聪', '曹博文', '杨晓宇', '陈亚东', '赵中阳', '展立业', '曹昊然', '杨浩淇', '韩锡金', '李超凡', '王凯', '丁卓肖', '余道林', '王志阳', '刘博文', '周天龙',]
+    const arr2 = ['李媛媛', '王婷婷', '张清莲', '裴丽珂', '张秋景',]
+    let show = document.querySelector('.show')
+    let btn1 = document.querySelector('.btn1')
+    let btn2 = document.querySelector('.btn2')
+    let btn3 = document.querySelector('.btn3')
+    let btn4 = document.querySelector('.btn4')
+    var val = document.querySelector('#val');
+
+    let add = 1
+    let timer
+    for (var i = 0; i < arr.length; i++) {
+        let span = document.createElement('span')
+        span.innerHTML += arr[i]
+        show.appendChild(span)
+        span.className = 'span'
+    }
+
+    let time = document.querySelector('#time')
+    function Time() {
+        time.innerHTML = new Date().toLocaleString()
+    }
+
+    setInterval(() => {
+        Time()
+    });
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    btn1.onclick = function () {
+
+        show.style.animation = 'gradient 5s infinite'
+
+        // clearInterval(timer)
+        if (add == 1) {
+
+            timer = setInterval(() => {
+
+                let random = getRandom(0, arr.length - 1);
+                val.innerHTML = arr[random];
+            }, 50)
+            add = 2
+        } else {
+
+            clearInterval(timer)
+            show.style.animation = ''
+            add = 1
+        }
+    }
+    btn2.onclick = function () {
+        if (add == 1) {
+            show.style.animation = 'gradient 5s infinite'
+            timer = setInterval(() => {
+
+                let random = getRandom(0, arr.length - 1,);
+                let random1 = getRandom(0, arr.length - 1,);
+
+                console.log(random1);
+                val.innerHTML = arr[random] + arr[random1];
+            }, 50)
+            add = 2
+        } else {
+            clearInterval(timer)
+            show.style.animation = ''
+            add = 1
+        }
+
+    }
+    btn3.onclick = function () {
+
+        if (add == 1) {
+            show.style.animation = 'gradient 5s infinite'
+            timer = setInterval(() => {
+
+                let random = getRandom(0, arr1.length - 1);
+                val.innerHTML = arr1[random];
+            }, 50)
+            add = 2
+        } else {
+
+            clearInterval(timer)
+            show.style.animation = ''
+            add = 1
+        }
+    }
+    btn4.onclick = function () {
+
+        if (add == 1) {
+            show.style.animation = 'gradient 5s infinite'
+            timer = setInterval(() => {
+
+                let random = getRandom(0, arr2.length - 1);
+                val.innerHTML = arr2[random];
+            }, 50)
+            add = 2
+        } else {
+
+            clearInterval(timer)
+            show.style.animation = ''
+
+            add = 1
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //map
+        const map = new Map([
+            ['name', '122'],
+            ['title', '985'],
+            ['title1', '9851'],
+            ['title11', '9852']
+        ])
+
+        map.set(['tit222le'])
+        // console.log(map.size);
+        // console.log(map.get('name'));
+        // console.log(map.has('name'));
+        // console.log(map.delete('name'));
+        // console.log(map);
+        // const dzx=['1','2','3','3','4','5','5','5','6']
+        // let dzx1=new Set(['1','2','3','3','4','5','5','5','6'])
+        // console.log(dzx1);
+        //class
+        function Point(x, y) {
+            this.x = x
+            this.y = y
+        }
+        Point.prototype.toString = function () {
+            return '(' + this.x + ',' + this.y + ')'
+        }
+        var p = new Point(1, 2)
+        console.log(p);
+    </script>
+</body>
+
+</html>

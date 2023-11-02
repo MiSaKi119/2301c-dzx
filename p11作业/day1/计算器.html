@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div
+        style="padding: 25px; width: 500px;display: flex;flex-direction: column;border: 1px solid black; align-items: center;">
+        <input class="Srinput" type="text" style="text-align: end;font-size: 50px;">
+        <div style="width: 500px;display: flex;flex-wrap: wrap;">
+            <input onclick="btn(value)" class="num_btn" type="button" value="1">
+            <input onclick="btn(value)" class="num_btn" type="button" value="2">
+            <input onclick="btn(value)" class="num_btn" type="button" value="3">
+            <input onclick="btn(value)" class="num_btn" type="button" value="%">
+            <input onclick="btn(value)" class="num_btn" type="button" value="+">
+            <input onclick="btn(value)" class="num_btn" type="button" value="4">
+            <input onclick="btn(value)" class="num_btn" type="button" value="5">
+            <input onclick="btn(value)" class="num_btn" type="button" value="6">
+            <input onclick="btnback()" class="num_btn" type="button" value="Back">
+            <input onclick="btn(value)" class="num_btn" type="button" value="-">
+            <input onclick="btn(value)" class="num_btn" type="button" value="7">
+            <input onclick="btn(value)" class="num_btn" type="button" value="8">
+            <input onclick="btn(value)" class="num_btn" type="button" value="9">
+            <input onclick="btnsc()" class="num_btn" type="button" value="C">
+            <input onclick="btn(value)" class="num_btn" type="button" value="*">
+            <input onclick="btn(value)" class="num_btn" type="button" value="0">
+            <input onclick="btn(value)" class="num_btn" type="button" value="*">
+            <input onclick="btn(value)" class="num_btn" type="button" value=".">
+            <input onclick="btn(value)" class="num_btn" type="button" value="/">
+            <input onclick="btn(value)" class="num_btn" type="button" value="=">
+        </div>
+    </div>
+</head>
+<script>
+    var a = ''
+    var s = ''
+    var Srinput = document.querySelector('.Srinput')
+    function btn(val) {
+        if ((val - 0) <= 9 || val == '+' || val == '-' || val == '*' || val == '/' || val == '%' || val == '.') {
+            a += val
+            Srinput.value = a
+        } else if (val == '=') {
+            Srinput.value = eval(Srinput.value)
+            a = Srinput.value
+        }
+    }
+    function btnsc() {
+        Srinput.value = ''
+        a = Srinput.value
+    }
+    function btnback() {
+        Srinput.value = Srinput.value.slice(0,a.length-1)
+        a = Srinput.value
+    }
+</script>
+
+<body>
+    <style>
+        .Srinput {
+            width: 480px;
+            height: 100px;
+            border: 0.2px solid rgba(0, 0, 0, 0.116);
+            margin-bottom: 10px;
+        }
+
+        .num_btn {
+            width: 18%;
+            height: 90px;
+            margin: 5px;
+            border-radius: 10px;
+            border: 0;
+        }
+    </style>
+</body>
+
+</html>
